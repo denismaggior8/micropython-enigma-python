@@ -1,5 +1,5 @@
 {
-    "name": "micropython-enigmapython",
+    "name": "micropython_enigmapython",
     "version": "1.2.1",
     "license": "MIT",
     "description": "MicroPython wrapper for enigmapython, blocking incompatible modules",
