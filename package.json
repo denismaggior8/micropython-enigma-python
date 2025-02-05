@@ -1,6 +1,5 @@
 {
     "deps": [
       ["github:denismaggior8/enigma-python/src/enigma/enigmapython/Enigma.py"]
-    ],
-    "version": "1.2.1"
+    ]
   }
