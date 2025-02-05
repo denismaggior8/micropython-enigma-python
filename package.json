@@ -7,6 +7,7 @@
         "enigmapython": "1.2.1"
     },
     "files": [
-        "enigmapython/__init__.py"
+        "enigmapython/__init__.py",
+        "enigmapython/module1.py"
     ]
 }
