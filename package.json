@@ -1,12 +1,12 @@
 {
-    "name": "enigmapython-wrapper",
-    "version": "0.1.0",
+    "name": "enigmapython",
+    "version": "1.2.1",
     "license": "MIT",
     "description": "MicroPython wrapper for enigmapython, blocking incompatible modules",
     "dependencies": {
         "enigmapython": "1.2.1"
     },
     "files": [
-        "micropython_enigmapython/__init__.py"
+        "enigmapython/__init__.py"
     ]
 }
