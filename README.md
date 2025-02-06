@@ -27,7 +27,7 @@ mip.install("github:denismaggior8/micropython-enigma-python", version="1.2.3")
 
 ## Releases
 
-This repo mirrors the **enigmapython** releases on PyPi, meaning that by installing micropython-enigma-python version 1.2.3 (as in the example above) you get the **enigmapython** 1.2.3 PyPi equivalent.
+This repo mirrors the **enigmapython** releases on PyPi, meaning that by installing **micropython-enigma-python** version 1.2.3 (as in the example above) you get the **enigmapython** 1.2.3 PyPi equivalent.
 
 ## Examples
 
@@ -60,4 +60,4 @@ enigma = EnigmaB_A133(rotor3, rotor2, rotor1, reflector, etw, True)
 print(enigma.input_string("denis"))
 ```
 
-To get more examples about how to use the library, you can inspect this repo's [examples](./examples) folder or the original **enigmapython** examples [here](https://github.com/denismaggior8/enigma-python/tree/master/examples).
+To get more examples you can inspect this repo's [examples](./examples) folder or the original **enigmapython** examples [here](https://github.com/denismaggior8/enigma-python/tree/master/examples).
