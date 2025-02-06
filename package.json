@@ -78,8 +78,7 @@
         ["enigmapython/Scrambler.py", "https://raw.githubusercontent.com/denismaggior8/enigma-python/refs/heads/feature/v1.2.3/src/enigma/enigmapython/Scrambler.py"],
         ["enigmapython/Swappable.py", "https://raw.githubusercontent.com/denismaggior8/enigma-python/refs/heads/feature/v1.2.3/src/enigma/enigmapython/Swappable.py"],
         ["enigmapython/SwappablePlugboard.py", "https://raw.githubusercontent.com/denismaggior8/enigma-python/refs/heads/feature/v1.2.3/src/enigma/enigmapython/SwappablePlugboard.py"],
-        ["enigmapython/Utils.py", "https://raw.githubusercontent.com/denismaggior8/enigma-python/refs/heads/feature/v1.2.3/src/enigma/enigmapython/Utils.py"],
-        ["enigmapython/__init__.py", "https://raw.githubusercontent.com/denismaggior8/enigma-python/refs/heads/feature/v1.2.3/src/enigma/enigmapython/__init__.py"]
+        ["enigmapython/Utils.py", "https://raw.githubusercontent.com/denismaggior8/enigma-python/refs/heads/feature/v1.2.3/src/enigma/enigmapython/Utils.py"]
     ],
     "deps": [
       ["logging"],
