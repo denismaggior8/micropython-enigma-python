@@ -82,8 +82,8 @@
         ["enigmapython/__init__.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/__init__.mpy"]
     ],
     "deps": [
-      ["logging", "github:denismaggior8/micropython-enigma-python/latest"],
-      ["copy", "github:denismaggior8/micropython-enigma-python/latest"]
+      ["logging", "latest"],
+      ["copy", "latest"]
     ],
     "version": "1.2.3"
   }
