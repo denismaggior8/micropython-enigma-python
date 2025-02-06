@@ -4,8 +4,8 @@ print(sys.path)
 sys.path.insert(0, '/Users/denismaggiorotto/.micropython/lib')
 print(sys.path)
 import mip
-mip.install("logging")
-mip.install("copy")
+mip.install("github:denismaggior8/micropython-enigma-python", version="master")
+
 import logging
 import copy
 from enigmapython.EnigmaB_A133RotorI import EnigmaB_A133RotorI
