@@ -31,15 +31,9 @@ This repo mirrors the **enigmapython** releases on PyPi, meaning that by install
 
 ## Examples
 
-This a very simple MicroPython code that shows how to use the library
+This is a very simple MicroPython snippet that shows how to use the library (once installed in the system)
 
 ```python
-# Import mip package manager
-import mip
-
-# Install enigmapython library
-mip.install("github:denismaggior8/micropython-enigma-python", version="master")
-
 # Import enigmapython modules
 from enigmapython.EnigmaB_A133RotorI import EnigmaB_A133RotorI
 from enigmapython.EnigmaB_A133Etw import EnigmaB_A133Etw
