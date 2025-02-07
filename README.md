@@ -65,3 +65,6 @@ To get more examples you can inspect this repo's [examples](./examples) folder o
 |   |   |   |   |
 
 If you run **enigmapython** on hardware not yet listed here, drop me an email at denis.maggiorotto[at]gmail.com or open a PR.  
+
+>**Be aware:**
+>**ESP8266**-like boards are currently UNSUPPORTED due to their low memory
