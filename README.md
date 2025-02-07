@@ -55,3 +55,13 @@ print(enigma.input_string("denis"))
 ```
 
 To get more examples you can inspect this repo's [examples](./examples) folder or the original **enigmapython** examples [here](https://github.com/denismaggior8/enigma-python/tree/master/examples).
+
+# Tested hardware
+
+| Machine | enigmapython version  | MP version  | HW architecture |
+|---|---|---|---|
+| ESP32 Wroom 32  | 1.2.3  | 1.24.1 | Xtensa 32-bit LX6 |
+| macOS Sequoia 15.3 | 1.2.3 | 1.24.1 | Apple Silicon (M2 Max)  |
+|   |   |   |   |
+
+If you run **enigmapython** on hardware not yet listed here, drop me an email at denis.maggiorotto[at]gmail.com or open a PR.  
