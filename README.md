@@ -56,7 +56,7 @@ print(enigma.input_string("denis"))
 
 To get more examples you can inspect this repo's [examples](./examples) folder or the original **enigmapython** examples [here](https://github.com/denismaggior8/enigma-python/tree/master/examples).
 
-# Tested hardware
+## Tested hardware
 
 | Machine | enigmapython version  | MP version  | HW architecture |
 |---|---|---|---|
