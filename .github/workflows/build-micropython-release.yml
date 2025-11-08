@@ -1,4 +1,6 @@
 name: Build and release MicroPython package
+permissions:
+  contents: write
 
 on:
   push:
@@ -57,6 +59,7 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git commit -am "Final commit for release v${{ steps.project.outputs.version }}"
+          git push
       #- name: Push changes
       #  uses: ad-m/github-push-action@master
       #  with:
