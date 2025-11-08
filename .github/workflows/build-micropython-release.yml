@@ -17,14 +17,21 @@ jobs:
         id: project
         run: |
           echo "Reading project.json..."
-          VERSION="$(jq -r '.version' package.json)"
+          VERSION="v$(jq -r '.version' package.json)"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
 
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y git python3 jq wget tar
+          sudo apt install -y git python3 jq wget tar build-essential git python3-pip
+      
+      - name: Clone MicroPython tools
+        run: |
+          git clone --depth=1 https://github.com/micropython/micropython.git
+          cd micropython/mpy-cross
+          make -j$(nproc)
+          echo "$PWD" >> $GITHUB_PATH
 
       - name: Clone CPython project (enigma-python) at same tag
         run: |
@@ -32,11 +39,6 @@ jobs:
           echo "Cloning enigma-python at tag v${VERSION}"
           git clone --depth 1 --branch "v${VERSION}" https://github.com/denismaggior8/enigma-python.git enigma-src
 
-      - name: Download MicroPython cross-compiler
-        run: |
-          wget https://micropython.org/resources/code/mpy-cross-v1.24.0-linux-x86_64.tar.xz
-          tar xf mpy-cross-v1.24.0-linux-x86_64.tar.xz
-          chmod +x mpy-cross/mpy-cross
 
       - name: Compile modules to .mpy
         run: |
@@ -45,7 +47,7 @@ jobs:
           do 
               py-file=$(echo $file | grep github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g') done
               echo "Compiling $file"
-              ./mpy-cross/mpy-cross enigma-src/$py-file -o build/mpy/$(basename ${file%.py}.mpy)
+              mpy-cross enigma-src/$py-file -o build/mpy/$(basename ${file%.py}.mpy)
           done
           cp build/mpy/*.mpy micropython-enigma-python/enigmapython/
       - name: Package release files
