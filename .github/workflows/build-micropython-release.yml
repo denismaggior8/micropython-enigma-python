@@ -43,11 +43,10 @@ jobs:
       - name: Compile modules to .mpy
         run: |
           mkdir -p build/mpy
-          for file in $(jq -r '.urls[]' package.json); 
-          do 
-              py-file=$(echo $file | grep github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g')
+          for file in $(jq -r '.urls[]' package.json | grep github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g'); 
+          do
               echo "Compiling $file"
-              mpy-cross enigma-src/$py-file -o build/mpy/$(basename ${file%.py}.mpy)
+              mpy-cross enigma-src/file -o build/mpy/$(basename ${file%.py}.mpy)
           done
           cp build/mpy/*.mpy micropython-enigma-python/enigmapython/
       - name: Package release files
