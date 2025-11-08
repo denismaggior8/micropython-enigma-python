@@ -42,6 +42,7 @@ jobs:
 
       - name: Compile modules to .mpy
         run: |
+          ls -l enigma-src
           mkdir -p build/mpy
           for file in $(jq -r '.urls[]' package.json | grep -v "\[" | grep -v "\]" | grep -v github | sed -e 's/"//g' | sed -e 's/.mpy/.py/g'); 
           do
@@ -58,11 +59,11 @@ jobs:
           cd release
           zip -r ../micropython-enigma-python-${{ steps.project.outputs.version }}.zip .
 
-      - name: Create GitHub release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: "MicroPython Enigma Python v${{ steps.project.outputs.version }}"
-          body: "Auto-built MicroPython package from Enigma Python v${{ steps.project.outputs.version }}"
-          files: micropython-enigma-python-${{ steps.project.outputs.version }}.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Create GitHub release
+      #  uses: softprops/action-gh-release@v2
+      #  with:
+      #    name: "MicroPython Enigma Python v${{ steps.project.outputs.version }}"
+      #    body: "Auto-built MicroPython package from Enigma Python v${{ steps.project.outputs.version }}"
+      #    files: micropython-enigma-python-${{ steps.project.outputs.version }}.zip
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
