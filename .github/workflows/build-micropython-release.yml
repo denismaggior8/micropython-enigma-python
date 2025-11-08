@@ -43,7 +43,7 @@ jobs:
       - name: Compile modules to .mpy
         run: |
           mkdir -p build/mpy
-          for file in $(jq -r '.urls[]' package.json | grep github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g'); 
+          for file in $(jq -r '.urls[]' package.json | grep -v "\[" | grep -v "\]" | grep -v github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g'); 
           do
               echo "Compiling $file"
               micropython/mpy-cross/build/mpy-cross enigma-src/$file -o build/mpy/$(basename ${file%.py}.mpy)
