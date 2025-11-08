@@ -1,0 +1,69 @@
+name: Build and release MicroPython package
+
+on:
+  push:
+    tags:
+      - 'v*'
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this MicroPython repo
+        uses: actions/checkout@v4
+
+      - name: Read project metadata
+        id: project
+        run: |
+          echo "Reading project.json..."
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y git python3 jq wget tar
+
+      - name: Clone CPython project (enigma-python) at same tag
+        run: |
+          VERSION=${{ steps.project.outputs.version }}
+          echo "Cloning enigma-python at tag v${VERSION}"
+          git clone --depth 1 --branch "v${VERSION}" https://github.com/DenisMaggiorotto/enigma-python.git enigma-src
+
+      - name: Download MicroPython cross-compiler
+        run: |
+          wget https://micropython.org/resources/code/mpy-cross-v1.24.0-linux-x86_64.tar.xz
+          tar xf mpy-cross-v1.24.0-linux-x86_64.tar.xz
+          chmod +x mpy-cross/mpy-cross
+
+      - name: Compile modules to .mpy
+        run: |
+          mkdir -p build/mpy
+          for file in $(jq -r '.urls[]' package.json); 
+          do 
+              py-file=$(echo $file | grep github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g') done
+              echo "Compiling $file"
+              ./mpy-cross/mpy-cross $py-file -o build/mpy/$(basename ${file%.py}.mpy)
+          done
+
+      - name: Package release files
+        run: |
+          mkdir release
+          cp -r build/mpy/* release/
+          cp project.json release/
+          echo "metadata(version='${{ steps.project.outputs.version }}', description='MicroPython port of Enigma machine simulator')" > release/manifest.py
+          cd release
+          zip -r ../micropython-enigma-python-${{ steps.project.outputs.version }}.zip .
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "MicroPython Enigma Python v${{ steps.project.outputs.version }}"
+          body: "Auto-built MicroPython package from Enigma Python v${{ steps.project.outputs.version }}"
+          files: micropython-enigma-python-${{ steps.project.outputs.version }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
