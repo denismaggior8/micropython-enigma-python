@@ -49,7 +49,7 @@ jobs:
               micropython/mpy-cross/build/mpy-cross enigma-src/src/enigma/$file -o build/mpy/$(basename ${file%.py}.mpy)
           done
           ls -l 
-          cp build/mpy/*.mpy /enigmapython/
+          cp build/mpy/*.mpy enigmapython/
       - name: Package release files
         run: |
           mkdir release
