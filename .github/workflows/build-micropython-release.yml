@@ -48,16 +48,28 @@ jobs:
               echo "Compiling $file"
               micropython/mpy-cross/build/mpy-cross enigma-src/src/enigma/$file -o build/mpy/$(basename ${file%.py}.mpy)
           done
-          ls -l 
           cp build/mpy/*.mpy enigmapython/
-      - name: Package release files
+          rm -rf micropython
+          rm -rf enigma-src
+          rm -rf build
+      - name: Commit .mpy files
         run: |
-          mkdir release
-          cp -r build/mpy/* release/
-          cp project.json release/
-          echo "metadata(version='${{ steps.project.outputs.version }}', description='MicroPython port of Enigma machine simulator')" > release/manifest.py
-          cd release
-          zip -r ../micropython-enigma-python-${{ steps.project.outputs.version }}.zip .
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git commit -am "Final commit for release v${{ steps.project.outputs.version }}"
+      #- name: Push changes
+      #  uses: ad-m/github-push-action@master
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    branch: ${{ github.ref }}
+      #- name: Package release files
+      #  run: |
+      #    mkdir release
+      #    cp -r build/mpy/* release/
+      #    cp project.json release/
+      #    echo "metadata(version='${{ steps.project.outputs.version }}', description='MicroPython port of Enigma machine simulator')" > release/manifest.py
+      #    cd release
+      #    zip -r ../micropython-enigma-python-${{ steps.project.outputs.version }}.zip .
 
       #- name: Create GitHub release
       #  uses: softprops/action-gh-release@v2
