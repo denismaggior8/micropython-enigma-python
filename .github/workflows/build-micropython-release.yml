@@ -60,25 +60,24 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git commit -am "Final commit for release v${{ steps.project.outputs.version }}"
           git push
-      #- name: Push changes
-      #  uses: ad-m/github-push-action@master
-      #  with:
-      #    github_token: ${{ secrets.GITHUB_TOKEN }}
-      #    branch: ${{ github.ref }}
-      #- name: Package release files
-      #  run: |
-      #    mkdir release
-      #    cp -r build/mpy/* release/
-      #    cp project.json release/
-      #    echo "metadata(version='${{ steps.project.outputs.version }}', description='MicroPython port of Enigma machine simulator')" > release/manifest.py
-      #    cd release
-      #    zip -r ../micropython-enigma-python-${{ steps.project.outputs.version }}.zip .
+      # 4. Create a ZIP archive of the source (excluding .git and build)
+      - name: Create release archive
+        run: |
+          mkdir -p dist
+          zip -r "dist/enigma-core-v${{ steps.project.outputs.version }}.zip" . -x "*.git*" "dist/*"
 
-      #- name: Create GitHub release
-      #  uses: softprops/action-gh-release@v2
-      #  with:
-      #    name: "MicroPython Enigma Python v${{ steps.project.outputs.version }}"
-      #    body: "Auto-built MicroPython package from Enigma Python v${{ steps.project.outputs.version }}"
-      #    files: micropython-enigma-python-${{ steps.project.outputs.version }}.zip
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # 5. Create Git tag and push
+      - name: Tag and push
+        run: |
+          git tag -a "v${{ steps.project.outputs.version }}" -m "Release v${{ steps.project.outputs.version }}"
+          git push origin "v${{ steps.project.outputs.version }}"
+
+      # 6. Create GitHub Release and upload ZIP
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.project.outputs.version }}
+          name: "Release v${{ steps.project.outputs.version }}
+          body: |
+            🚀 Automated release of micropython-enigma-python  
+          files: dist/enigma-core- "v${{ steps.project.outputs.version }}".zip
