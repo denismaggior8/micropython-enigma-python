@@ -42,7 +42,7 @@ jobs:
 
       - name: Compile modules to .mpy
         run: |
-          ls -l enigma-src
+          ls -l enigma-src/src/enigma/enigmapython/
           mkdir -p build/mpy
           for file in $(jq -r '.urls[]' package.json | grep -v "\[" | grep -v "\]" | grep -v github | sed -e 's/"//g' | sed -e 's/.mpy/.py/g'); 
           do
