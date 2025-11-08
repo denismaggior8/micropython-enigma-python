@@ -46,7 +46,7 @@ jobs:
           for file in $(jq -r '.urls[]' package.json | grep github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g'); 
           do
               echo "Compiling $file"
-              micropython/mpy-cross/build/mpy-cross enigma-src/file -o build/mpy/$(basename ${file%.py}.mpy)
+              micropython/mpy-cross/build/mpy-cross enigma-src/$file -o build/mpy/$(basename ${file%.py}.mpy)
           done
           cp build/mpy/*.mpy micropython-enigma-python/enigmapython/
       - name: Package release files
