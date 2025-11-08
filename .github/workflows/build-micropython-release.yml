@@ -32,7 +32,7 @@ jobs:
         run: |
           VERSION=${{ steps.project.outputs.version }}
           echo "Cloning enigma-python at tag v${VERSION}"
-          git clone --depth 1 --branch "v${VERSION}" https://github.com/DenisMaggiorotto/enigma-python.git enigma-src
+          git clone --depth 1 --branch "v${VERSION}" https://github.com/denismaggior8/enigma-python.git enigma-src
 
       - name: Download MicroPython cross-compiler
         run: |
@@ -47,7 +47,7 @@ jobs:
           do 
               py-file=$(echo $file | grep github | sed -e 's/"//g' | cut -d / -f 2- | sed -e 's/.mpy/.py/g') done
               echo "Compiling $file"
-              ./mpy-cross/mpy-cross $py-file -o build/mpy/$(basename ${file%.py}.mpy)
+              ./mpy-cross/mpy-cross enigma-src/$py-file -o build/mpy/$(basename ${file%.py}.mpy)
           done
 
       - name: Package release files
