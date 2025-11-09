@@ -60,7 +60,7 @@ jobs:
       - name: Run tests
         run: |
           cd enigmapython
-          micropython tests/main.py
+          micropython/micropython tests/main.py
 
       - name: Commit .mpy files
         run: |
