@@ -58,26 +58,41 @@ jobs:
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git commit -am "Final commit for release v${{ steps.project.outputs.version }}"
+          git add .
+          git diff --cached --quiet && echo "No changes to commit." && exit 0
+          git commit -m "Final commit for release v${{ steps.project.outputs.version }}"
           git push
-      # 4. Create a ZIP archive of the source (excluding .git and build)
+
+      - name: Check if tag already exists
+        id: check_tag
+        run: |
+          if git rev-parse "v${{ steps.project.outputs.version }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Abort if tag exists
+        if: steps.check_tag.outputs.exists == 'true'
+        run: |
+          echo "Tag v${{ steps.project.outputs.version }} already exists. Aborting release."
+          exit 1
+
+      - name: Tag and push
+        run: |
+          git tag -a "v${{ steps.project.outputs.version }}" -m "v${{ steps.project.outputs.version }}"
+          git push origin "v${{ steps.project.outputs.version }}"
+
       - name: Create release archive
         run: |
           mkdir -p dist
           zip -r "dist/enigma-core-v${{ steps.project.outputs.version }}.zip" . -x "*.git*" "dist/*"
 
-      # 5. Create Git tag and push
-      - name: Tag and push
-        run: |
-          git tag -a "v${{ steps.project.outputs.version }}" -m "Release v${{ steps.project.outputs.version }}"
-          git push origin "v${{ steps.project.outputs.version }}"
-
-      # 6. Create GitHub Release and upload ZIP
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.project.outputs.version }}
-          name: "Release v${{ steps.project.outputs.version }}"
+          name: "v${{ steps.project.outputs.version }}"
           body: |
             🚀 Automated release of micropython-enigma-python  
           files: dist/enigma-core- "v${{ steps.project.outputs.version }}".zip
