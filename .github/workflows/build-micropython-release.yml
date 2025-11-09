@@ -56,20 +56,16 @@ jobs:
           cp build/mpy/*.mpy enigmapython/
           rm -rf enigma-src
           rm -rf build
+          rm -rf micropython
 
       - name: Run tests
         run: |
-          cd micropython
-          git submodule update --init --recursive
-          cd ports/unix
-          make clean
-          make -j4 MICROPY_PY_USSL=0 MICROPY_SSL_MBEDTLS=0 USER_C_MODULES= MICROPY_PY_BTREE=0
-          cp micropython /usr/local/bin/
-          micropython ../../../enigmapython/tests/main.py
+          sudo apt install -y micropython
+          micropython enigmapython/tests/main.py
 
       - name: Commit .mpy files
         run: |
-          rm -rf micropython
+
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
