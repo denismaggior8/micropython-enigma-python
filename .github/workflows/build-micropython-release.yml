@@ -59,7 +59,7 @@ jobs:
 
       - name: Run tests
         run: |
-          cd enigmapython/ports/unix
+          cd micropython/ports/unix
           make
           cp micropython /usr/local/bin/
           micropython ../../../enigmapython/tests/main.py
