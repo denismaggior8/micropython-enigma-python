@@ -59,10 +59,10 @@ jobs:
 
       - name: Run tests
         run: |
-          cd enigmapython/unix
+          cd enigmapython/ports/unix
           make
           cp micropython /usr/local/bin/
-          micropython ../../enigmapython/tests/main.py
+          micropython ../../../enigmapython/tests/main.py
 
       - name: Commit .mpy files
         run: |
