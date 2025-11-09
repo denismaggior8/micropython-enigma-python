@@ -39,7 +39,10 @@ jobs:
         run: |
           VERSION=${{ steps.project.outputs.version }}
           echo "Cloning enigma-python at tag v${VERSION}"
-          git clone --depth 1 --branch "v${VERSION}" https://github.com/denismaggior8/enigma-python.git enigma-src
+          if ! git clone --depth 1 --branch "v${VERSION}" https://github.com/denismaggior8/enigma-python.git enigma-src
+            echo "ERROR: enigma-python tag v${VERSION} does not exist or cannot be cloned, exiting"
+            exit 1
+          fi
 
 
       - name: Compile modules to .mpy
