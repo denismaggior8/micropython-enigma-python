@@ -54,12 +54,17 @@ jobs:
               micropython/mpy-cross/build/mpy-cross enigma-src/src/enigma/$file -o build/mpy/$(basename ${file%.py}.mpy)
           done
           cp build/mpy/*.mpy enigmapython/
-          rm -rf micropython
           rm -rf enigma-src
           rm -rf build
-          
+
+      - name: Run tests
+        run: |
+          cd enigmapython
+          micropython tests/main.py
+
       - name: Commit .mpy files
         run: |
+          rm -rf micropython
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
