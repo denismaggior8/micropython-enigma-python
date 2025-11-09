@@ -57,6 +57,7 @@ jobs:
           rm -rf micropython
           rm -rf enigma-src
           rm -rf build
+          
       - name: Commit .mpy files
         run: |
           git config user.name "${GITHUB_ACTOR}"
@@ -65,21 +66,6 @@ jobs:
           git diff --cached --quiet && echo "No changes to commit." && exit 0
           git commit -m "Final commit for release ${{ steps.project.outputs.version }}"
           git push
-
-      - name: Check if tag already exists
-        id: check_tag
-        run: |
-          if git rev-parse "${{ steps.project.outputs.version }}" >/dev/null 2>&1; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-          
-      - name: Abort if tag exists
-        if: steps.check_tag.outputs.exists == 'true'
-        run: |
-          echo "Tag ${{ steps.project.outputs.version }} already exists. Aborting release."
-          exit 1
 
       - name: Tag and push
         run: |
