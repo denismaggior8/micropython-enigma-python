@@ -77,7 +77,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.project.outputs.version }}
-          name: "Release v${{ steps.project.outputs.version }}
+          name: "Release v${{ steps.project.outputs.version }}"
           body: |
             🚀 Automated release of micropython-enigma-python  
           files: dist/enigma-core- "v${{ steps.project.outputs.version }}".zip
