@@ -60,7 +60,8 @@ jobs:
       - name: Run tests
         run: |
           cd micropython/ports/unix
-          make -j4 MICROPY_PY_USSL=0
+          make clean
+          make -j4 MICROPY_PY_USSL=0 MICROPY_SSL_MBEDTLS=0 USER_C_MODULES=
           cp micropython /usr/local/bin/
           micropython ../../../enigmapython/tests/main.py
 
