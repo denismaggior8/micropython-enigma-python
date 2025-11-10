@@ -62,6 +62,12 @@ jobs:
         run: |
           sudo apt install -y micropython
           export MICROPYPATH=$MICROPYPATH:$(pwd)
+          jq -c '.deps[]' "package.json" | while read -r dep; do
+            name=$(echo "$dep" | jq -r '.[0]')
+            version=$(echo "$dep" | jq -r '.[1]')
+            micropython -m mip install "$name@$version"
+            echo "Package: $name, Version: $version installed"
+          done
           micropython tests/main.py
 
       - name: Commit .mpy files
