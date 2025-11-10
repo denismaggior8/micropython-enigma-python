@@ -64,6 +64,7 @@ jobs:
           git submodule update --init --recursive
           cd ports/unix
           make clean
+          make submodules
           make MICROPY_PY_MIP=1 MICROPY_PY_BTREE=0 MICROPY_PY_MBEDTLS=1 MICROPY_PY_UZLIB=0 MICROPY_PY_SSL=1
           cd ../../..
           export MICROPYPATH=$MICROPYPATH:$(pwd)
