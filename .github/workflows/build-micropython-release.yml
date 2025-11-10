@@ -61,7 +61,7 @@ jobs:
       - name: Run tests
         run: |
           cd micropython/ports/unix
-          make MICROPY_PY_MIP=1 
+          make MICROPY_PY_MIP=1 MICROPY_PY_BTREE=0 MICROPY_PY_MBEDTLS=0 MICROPY_PY_UZLIB=0 MICROPY_PY_SSL=0
           cd ../../..
           export MICROPYPATH=$MICROPYPATH:$(pwd)
           jq -c '.deps[]' "package.json" | while read -r dep; do
