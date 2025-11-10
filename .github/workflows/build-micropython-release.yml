@@ -60,7 +60,9 @@ jobs:
 
       - name: Run tests
         run: |
-          sudo apt install -y micropython
+          # sudo apt install -y micropython
+          sudo wget https://micropython.org/resources/builds/unix/micropython -O /usr/local/bin/micropython
+          chmod +x /usr/local/bin/micropython
           export MICROPYPATH=$MICROPYPATH:$(pwd)
           jq -c '.deps[]' "package.json" | while read -r dep; do
             name=$(echo "$dep" | jq -r '.[0]')
