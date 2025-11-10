@@ -60,7 +60,9 @@ jobs:
 
       - name: Run tests
         run: |
-          cd micropython/ports/unix
+          cd micropython
+          git submodule update --init --recursive
+          cd ports/unix
           make MICROPY_PY_MIP=1 MICROPY_PY_BTREE=0 MICROPY_PY_MBEDTLS=0 MICROPY_PY_UZLIB=0 MICROPY_PY_SSL=0
           cd ../../..
           export MICROPYPATH=$MICROPYPATH:$(pwd)
