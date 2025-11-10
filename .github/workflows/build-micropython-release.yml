@@ -61,6 +61,7 @@ jobs:
       - name: Run tests
         run: |
           sudo apt install -y micropython
+          cp -r enigmapython $HOME/.micropython/lib
           micropython tests/main.py
 
       - name: Commit .mpy files
