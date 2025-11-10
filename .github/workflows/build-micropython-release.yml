@@ -69,11 +69,11 @@ jobs:
           jq -c '.deps[]' "package.json" | while read -r dep; do
             name=$(echo "$dep" | jq -r '.[0]')
             version=$(echo "$dep" | jq -r '.[1]')
-            micropython/ports/unix/micropython -m mip install "$name@$version"
+            micropython/ports/unix/build-standard/micropython -m mip install "$name@$version"
             echo "Package: $name, Version: $version installed"
           done
-          micropython/ports/unix/micropython tests/main.py
-
+          micropython/ports/unix/build-standard/micropython tests/main.py
+          rm -rf micropython
       - name: Commit .mpy files
         run: |
 
