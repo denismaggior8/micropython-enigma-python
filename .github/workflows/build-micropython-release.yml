@@ -26,14 +26,11 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y git python3 jq wget tar build-essential git python3-pip
+          sudo apt install -y git jq wget 
       
-      - name: Clone MicroPython tools
-        run: |
-          git clone --depth=1 https://github.com/micropython/micropython.git
-          cd micropython/mpy-cross
-          make -j$(nproc)
-          echo "$PWD" >> $GITHUB_PATH
+      - name: Install MicroPython
+        uses: BrianPugh/install-micropython@v2
+      
 
       - name: Clone CPython project (enigma-python) at same tag
         run: |
@@ -51,31 +48,21 @@ jobs:
           for file in $(jq -r '.urls[]' package.json | grep -v "\[" | grep -v "\]" | grep -v github | sed -e 's/"//g' | sed -e 's/.mpy/.py/g' | sed -e 's/,//g'); 
           do
               echo "Compiling $file"
-              micropython/mpy-cross/build/mpy-cross enigma-src/src/enigma/$file -o build/mpy/$(basename ${file%.py}.mpy)
+              mpy-cross enigma-src/src/enigma/$file -o build/mpy/$(basename ${file%.py}.mpy)
           done
           cp build/mpy/*.mpy enigmapython/
           rm -rf enigma-src
           rm -rf build
-          # rm -rf micropython
 
       - name: Run tests
         run: |
-          cd micropython
-          git submodule update --init --recursive
-          cd ports/unix
-          make clean
-          make submodules
-          make MICROPY_PY_MIP=1 MICROPY_PY_BTREE=0 MICROPY_PY_MBEDTLS=1 MICROPY_PY_UZLIB=0 MICROPY_PY_SSL=1
-          cd ../../..
-          export MICROPYPATH=$MICROPYPATH:$(pwd)
           jq -c '.deps[]' "package.json" | while read -r dep; do
             name=$(echo "$dep" | jq -r '.[0]')
             version=$(echo "$dep" | jq -r '.[1]')
-            micropython/ports/unix/build-standard/micropython -m mip install "$name@$version"
+            micropython -m mip install "$name@$version"
             echo "Package: $name, Version: $version installed"
           done
-          micropython/ports/unix/build-standard/micropython tests/main.py
-          rm -rf micropython
+          micropython tests/main.py
 
       - name: Commit .mpy files
         run: |
