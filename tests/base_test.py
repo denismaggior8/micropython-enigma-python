@@ -10,7 +10,11 @@ class BaseTest():
                 if callable(method):
                     print(f"▶ Running {name}...")
                     self.set_up()
-                    result = method()
+                    try:
+                        result = method()
+                    except Exception as e:
+                        print(f"EXCEPTION in {name}: {e}")
+                        result = False
                     self.tear_down()
                     self.flags.append((name, result))
         return self.flags                

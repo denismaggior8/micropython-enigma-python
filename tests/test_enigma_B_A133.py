@@ -17,14 +17,14 @@ class EnigmaB_A133TestCase(BaseTest):
         enigma = EnigmaB_A133(rotor3, rotor2, rotor1, reflector, etw, True)
         return assert_eq(enigma.input_string("denis"),"mmvok", "Enigma encryption failed")
 
-    def test_enigma_B_A133_ring_and_position_0_1(self):
+    def test_enigma_B_A133_ring_1_and_position_0(self):
         rotor1 = EnigmaB_A133RotorI(ring=0,position=0)
         rotor2 = EnigmaB_A133RotorI(ring=0,position=0)
-        rotor3 = EnigmaB_A133RotorI(ring=0,position=0)
+        rotor3 = EnigmaB_A133RotorI(ring=1,position=0)
         reflector = ReflectorUKW_EnigmaB_A133()
         etw = EnigmaB_A133Etw()
         enigma = EnigmaB_A133(rotor3, rotor2, rotor1, reflector, etw, True)
-        return assert_eq(enigma.input_string("denis"),"mmvoke", "Enigma encryption failed")
+        return assert_eq(enigma.input_string("denis"),"åjsäz", "Enigma encryption failed")
 
 def run():
     return EnigmaB_A133TestCase().run()
