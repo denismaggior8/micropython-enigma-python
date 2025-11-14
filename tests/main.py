@@ -14,7 +14,8 @@ def run_tests():
             mod = __import__(module_name)
             if hasattr(mod, "run"):
                 print("\n=== Running", module_name, "===")
-                flags.append(mod.run())
+                result = mod.run()
+                flags.append(result)
     print("\n=== Test Summary ===")
     for test_flags in flags:
         for test_name, result in test_flags:
