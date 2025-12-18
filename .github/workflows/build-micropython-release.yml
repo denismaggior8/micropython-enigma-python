@@ -79,16 +79,10 @@ jobs:
           git tag -a "${{ steps.project.outputs.version }}" -m "${{ steps.project.outputs.version }}"
           git push origin "${{ steps.project.outputs.version }}"
 
-      - name: Create release archive
-        run: |
-          mkdir -p dist
-          zip -r "dist/enigma-core-v${{ steps.project.outputs.version }}.zip" . -x "*.git*" "dist/*"
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.project.outputs.version }}
           name: "${{ steps.project.outputs.version }}"
           body: |
-            🚀 Automated release of micropython-enigma-python  
-          files: dist/enigma-core-"v${{ steps.project.outputs.version }}".zip
+            🚀 Automated release of micropython-enigma-python

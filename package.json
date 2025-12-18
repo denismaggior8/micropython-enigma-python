@@ -84,13 +84,11 @@
         ["enigmapython/EnigmaZRotorIII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaZRotorIII.mpy"],
         ["enigmapython/EnigmaZ.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaZ.mpy"],
         ["enigmapython/Rotor.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/Rotor.mpy"],
-        ["enigmapython/EnigmaIRotorV.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaIRotorV.mpy"],
-        ["enigmapython/EnigmaDEtw_QWERTZ.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaDEtw_QWERTZ.mpy"],
-        ["enigmapython/EnigmaKEtw_QWERTZ.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaKEtw_QWERTZ.mpy"]
+        ["enigmapython/EnigmaIRotorV.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaIRotorV.mpy"]
     ],
     "deps": [
       ["logging", "latest"],
       ["copy", "latest"]
     ],
-    "version": "2.0.0"
+    "version": "2.0.1"
   }
