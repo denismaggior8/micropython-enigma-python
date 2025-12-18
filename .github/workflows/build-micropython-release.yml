@@ -45,7 +45,7 @@ jobs:
       - name: Compile modules to .mpy
         run: |
           mkdir -p build/mpy
-          for file in $(jq -r '.urls[]' package.json | grep -v "\[" | grep -v "\]" | grep -v github | sed -e 's/"//g' | sed -e 's/.mpy/.py/g' | sed -e 's/,//g'); 
+          for file in $(jq -r '.urls[]' package.json | grep -v "\[" | grep -v "\]" | grep -v github | sed -e 's/"//g' | sed -e 's/\.mpy/\.py/g' | sed -e 's/,//g'); 
           do
               echo "Compiling $file"
               mpy-cross enigma-src/src/enigma/$file -o build/mpy/$(basename ${file%.py}.mpy)
