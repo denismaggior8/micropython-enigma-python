@@ -18,6 +18,7 @@
         ["enigmapython/EnigmaD.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaD.mpy"],
         ["enigmapython/RotatingReflector.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/RotatingReflector.mpy"],
         ["enigmapython/SettableReflector.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/SettableReflector.mpy"],
+        ["enigmapython/DynamicTurnoverRotor.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/DynamicTurnoverRotor.mpy"],
         ["enigmapython/EnigmaM4RotorIV.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM4RotorIV.mpy"],
         ["enigmapython/ReflectorUKW_EnigmaB_A133.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKW_EnigmaB_A133.mpy"],
         ["enigmapython/EnigmaZRotorII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaZRotorII.mpy"],
@@ -90,5 +91,5 @@
       ["logging", "latest"],
       ["copy", "latest"]
     ],
-    "version": "2.0.2"
+    "version": "3.0.0"
   }
