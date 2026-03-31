@@ -13,6 +13,7 @@
         ["enigmapython/EnigmaINorwayRotorII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaINorwayRotorII.mpy"],
         ["enigmapython/EnigmaM3RotorVI.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM3RotorVI.mpy"],
         ["enigmapython/ReflectorUKWC.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKWC.mpy"],
+        ["enigmapython/EnigmaKSwissRotorII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaKSwissRotorII.mpy"],
         ["enigmapython/Plugboard.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/Plugboard.mpy"],
         ["enigmapython/EnigmaM3RotorIV.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM3RotorIV.mpy"],
         ["enigmapython/EnigmaD.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaD.mpy"],
@@ -46,6 +47,7 @@
         ["enigmapython/EnigmaM4RotorVIII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM4RotorVIII.mpy"],
         ["enigmapython/EnigmaISonderRotorIII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaISonderRotorIII.mpy"],
         ["enigmapython/ReflectorUKW_EnigmaCommercial.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKW_EnigmaCommercial.mpy"],
+        ["enigmapython/EnigmaKSwiss.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaKSwiss.mpy"],
         ["enigmapython/EnigmaINorwayRotorV.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaINorwayRotorV.mpy"],
         ["enigmapython/EnigmaIRotorIV.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaIRotorIV.mpy"],
         ["enigmapython/SwappablePlugboard.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/SwappablePlugboard.mpy"],
@@ -61,6 +63,7 @@
         ["enigmapython/Journaled.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/Journaled.mpy"],
         ["enigmapython/EnigmaM4RotorII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM4RotorII.mpy"],
         ["enigmapython/ReflectorUKW_EnigmaINorway.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKW_EnigmaINorway.mpy"],
+        ["enigmapython/EnigmaKSwissRotorIII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaKSwissRotorIII.mpy"],
         ["enigmapython/EnigmaB_A133.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaB_A133.mpy"],
         ["enigmapython/ReflectorUKWBThin.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKWBThin.mpy"],
         ["enigmapython/Alphabets.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/Alphabets.mpy"],
@@ -78,6 +81,7 @@
         ["enigmapython/Etw.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/Etw.mpy"],
         ["enigmapython/Settable.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/Settable.mpy"],
         ["enigmapython/Scrambler.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/Scrambler.mpy"],
+        ["enigmapython/EnigmaKSwissRotorI.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaKSwissRotorI.mpy"],
         ["enigmapython/EnigmaINorwayRotorIII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaINorwayRotorIII.mpy"],
         ["enigmapython/EnigmaDRotorIII.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaDRotorIII.mpy"],
         ["enigmapython/ReflectorUKWA.mpy", "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKWA.mpy"],
@@ -91,5 +95,5 @@
       ["logging", "latest"],
       ["copy", "latest"]
     ],
-    "version": "3.0.1"
+    "version": "3.1.0"
   }
