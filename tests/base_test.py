@@ -14,6 +14,8 @@ class BaseTest():
                         result = method()
                     except Exception as e:
                         print(f"EXCEPTION in {name}: {e}")
+                        import sys
+                        sys.print_exception(e)
                         result = False
                     self.tear_down()
                     self.flags.append((name, result))
