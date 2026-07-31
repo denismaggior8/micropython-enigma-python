@@ -13,6 +13,10 @@
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaIRotorI.mpy"
     ],
     [
+      "enigmapython/EnigmaTRotorIII.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorIII.mpy"
+    ],
+    [
       "enigmapython/EnigmaISonderRotorI.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaISonderRotorI.mpy"
     ],
@@ -27,6 +31,10 @@
     [
       "enigmapython/EnigmaM4.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM4.mpy"
+    ],
+    [
+      "enigmapython/EnigmaTRotorVIII.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorVIII.mpy"
     ],
     [
       "enigmapython/PlugboardPassthrough.mpy",
@@ -85,6 +93,10 @@
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM4RotorIV.mpy"
     ],
     [
+      "enigmapython/ReflectorUKW_EnigmaT.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKW_EnigmaT.mpy"
+    ],
+    [
       "enigmapython/ReflectorUKW_EnigmaB_A133.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKW_EnigmaB_A133.mpy"
     ],
@@ -95,6 +107,10 @@
     [
       "enigmapython/EnigmaZRotorI.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaZRotorI.mpy"
+    ],
+    [
+      "enigmapython/EnigmaTRotorVII.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorVII.mpy"
     ],
     [
       "enigmapython/EnigmaB_A133RotorII.mpy",
@@ -117,12 +133,20 @@
       "github:denismaggior8/micropython-enigma-python/enigmapython/Observable.mpy"
     ],
     [
+      "enigmapython/EnigmaTRotorVI.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorVI.mpy"
+    ],
+    [
       "enigmapython/EnigmaB_A133Etw.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaB_A133Etw.mpy"
     ],
     [
       "enigmapython/EnigmaM4RotorBeta.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM4RotorBeta.mpy"
+    ],
+    [
+      "enigmapython/EnigmaTEtw.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTEtw.mpy"
     ],
     [
       "enigmapython/__init__.mpy",
@@ -137,6 +161,10 @@
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaIRotorII.mpy"
     ],
     [
+      "enigmapython/EnigmaTRotorIV.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorIV.mpy"
+    ],
+    [
       "enigmapython/EnigmaM4RotorVI.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM4RotorVI.mpy"
     ],
@@ -147,6 +175,10 @@
     [
       "enigmapython/EnigmaM3RotorVIII.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaM3RotorVIII.mpy"
+    ],
+    [
+      "enigmapython/EnigmaTRotorV.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorV.mpy"
     ],
     [
       "enigmapython/EnigmaM4RotorI.mpy",
@@ -185,8 +217,16 @@
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaISonderRotorIII.mpy"
     ],
     [
+      "enigmapython/EnigmaTRotorI.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorI.mpy"
+    ],
+    [
       "enigmapython/ReflectorUKW_EnigmaCommercial.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/ReflectorUKW_EnigmaCommercial.mpy"
+    ],
+    [
+      "enigmapython/EnigmaTRotorII.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaTRotorII.mpy"
     ],
     [
       "enigmapython/EnigmaKSwiss.mpy",
@@ -219,6 +259,10 @@
     [
       "enigmapython/EnigmaKRotorIII.mpy",
       "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaKRotorIII.mpy"
+    ],
+    [
+      "enigmapython/EnigmaT.mpy",
+      "github:denismaggior8/micropython-enigma-python/enigmapython/EnigmaT.mpy"
     ],
     [
       "enigmapython/EnigmaM3RotorIII.mpy",
@@ -371,5 +415,5 @@
       "latest"
     ]
   ],
-  "version": "3.1.2"
+  "version": "3.2.0"
 }
